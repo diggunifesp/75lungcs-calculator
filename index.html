@@ -11,13 +11,28 @@
 <style>[x-cloak]{display:none!important} @media print{button, .no-print{display:none!important}}</style>
 <meta content="Calculator — 75+ Cancer Screener (75+CS)" property="og:title"/><meta content="Interactive flow: FRIED + CFS → Dementia → Deardorff/Lee → Shared decision → Result" property="og:description"/><meta content="website" property="og:type"/><meta content="summary" name="twitter:card"/><meta content="Calculator — 75+ Cancer Screener (75+CS)" name="twitter:title"/><meta content="Interactive flow: FRIED + CFS → Dementia → Deardorff/Lee → Shared decision → Result" name="twitter:description"/><style id="print-style">
 @media print {
-  /* Remove shadows and background colors for economy */
   * { box-shadow: none !important; text-shadow: none !important; }
-  img { max-width: 100% !important; }
-  .no-print { display: none !important; }
-  .print-only { display: block !important; }
   body { background: #fff !important; color: #000 !important; }
+  img { max-width: 100% !important; page-break-inside: avoid; }
   a:link::after { content: " (" attr(href) ")"; font-size: 10px; }
+
+  .no-print, button, summary { display: none !important; }
+  details { border: none !important; box-shadow: none !important; background: transparent !important; }
+  details[open] > * { display: none !important; }
+  details > summary { display: none !important; }
+
+  main, #main, .max-w-6xl { max-width: none !important; padding: 0 !important; margin: 0 !important; }
+
+  header .text-gray-500.italic { display: none !important; }
+  header .text-gray-500.text-xs, header .text-gray-500.text-sm { display: none !important; }
+
+  .w-full.bg-gray-200.rounded-full.h-2 { display: none !important; }
+
+  .mt-2.p-2.bg-gray-50.border.rounded { display: none !important; }
+
+  #flowchart-details { display:none !important; }
+  #fluxograma-hero-print { display:block !important; }
+  footer, .text-gray-400 { display: none !important; }
 }
 </style>
 <style>
@@ -36,6 +51,74 @@
     background-color: #018392 !important;
   }
 </style>
+<!-- ===================== -->
+<!-- APP MODE (standalone) STYLES BEGIN -->
+<style id="app-mode-styles">
+@media (display-mode: standalone) {
+  header .text-gray-500.text-xs, header .text-gray-500.text-sm { display: none !important; }
+  header { margin-bottom: 12px !important; }
+  header h1 { font-size: 20px !important; }
+  header .mt-2.font-bold { font-size: 12px !important; line-height: 1.2 !important; }
+  #fluxograma-hero { margin-top: 10px !important; }
+  .bg-blue-50 img { height: 72px !important; }
+  div.text-xs.flex.gap-2.items-center.no-print.mt-2 { display: none !important; }
+}
+body.app-standalone header .text-gray-500.text-xs,
+body.app-standalone header .text-gray-500.text-sm { display: none !important; }
+body.app-standalone header { margin-bottom: 12px !important; }
+body.app-standalone header h1 { font-size: 20px !important; }
+body.app-standalone header .mt-2.font-bold { font-size: 12px !important; line-height: 1.2 !important; }
+body.app-standalone #fluxograma-hero { margin-top: 10px !important; }
+body.app-standalone .bg-blue-50 img { height: 72px !important; }
+body.app-standalone div.text-xs.flex.gap-2.items-center.no-print.mt-2 { display: none !important; }
+</style>
+<!-- APP MODE (standalone) STYLES END -->
+<!-- ===================== -->
+
+<!-- ===================== -->
+<!-- INSTALL-PROMPT (mobile browser only) BEGIN -->
+<style id="install-prompt-styles">
+  .install-prompt {
+    position: fixed;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    z-index: 9998;
+    border: 1px solid rgba(0,0,0,0.10);
+    border-radius: 14px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(8px);
+    padding: 10px 12px;
+    font: 13px system-ui, -apple-system, Segoe UI, Roboto, Arial;
+    color: rgba(0,0,0,0.75);
+    display: none;
+  }
+  .install-prompt .row { display:flex; align-items:center; gap:10px; }
+  .install-prompt .txt { flex: 1; line-height: 1.25; }
+  .install-prompt .btn {
+    border: 1px solid rgba(0,0,0,0.12);
+    background: rgba(0,0,0,0.04);
+    border-radius: 10px;
+    padding: 6px 10px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .install-prompt .btn.primary {
+    background: rgba(37, 99, 235, 0.10);
+    border-color: rgba(37, 99, 235, 0.25);
+  }
+  .install-prompt .btn:active { transform: translateY(1px); }
+  .install-prompt .hint {
+    margin-top: 8px;
+    font-size: 12px;
+    color: rgba(0,0,0,0.55);
+    display:none;
+  }
+  .install-prompt .hint b { font-weight: 700; }
+  @media (min-width: 900px) { .install-prompt { display:none !important; } }
+</style>
+<!-- INSTALL-PROMPT END -->
+<!-- ===================== -->
 </head>
 <body class="bg-gray-50 min-h-screen text-gray-800" x-data="fluxograma()"><a class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 bg-white border rounded px-3 py-2" href="#main">Skip to content</a><main id="main">
 <div class="max-w-6xl mx-auto px-4 py-6">
@@ -59,6 +142,11 @@
     </div>
 </div>
 </header>
+<details id="flowchart-details" class="mt-4 no-print">
+  <summary class="cursor-pointer text-sm font-semibold text-custom-blue select-none">
+    Flowchart (tap to open)
+  </summary>
+  <div class="mt-2">
 <section class="mt-4" id="fluxograma-hero">
   <div class="relative bg-white rounded-xl shadow-2xl ring-1 ring-black/5 overflow-hidden">
 
@@ -82,6 +170,21 @@
     />
   </div>
 </section>
+  </div>
+</details>
+
+<section class="mt-4 print-only" id="fluxograma-hero-print" style="display:none;">
+  <div class="relative bg-white rounded-xl shadow-2xl ring-1 ring-black/5 overflow-hidden">
+    <img src="assets/img/flowchart-en.png" alt="Flowchart" class="w-full h-auto block" />
+  </div>
+</section>
+
+<style>
+  @media print { #flowchart-details { display:none !important; } #fluxograma-hero-print { display:block !important; } }
+  #flowchart-details > summary { display:none; }
+  @media (display-mode: standalone) { #flowchart-details > summary { display:block; } }
+  body.app-standalone #flowchart-details > summary { display:block; }
+</style>
 <div class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center hidden z-50" id="fluxograma-modal"><img alt="Fluxograma ampliado" class="max-h-screen max-w-screen cursor-zoom-out" id="fluxograma-modal-img" src="assets/img/flowchart-en.png"/></div>
 <div class="mb-4">
 <div class="flex items-center justify-between mb-1">
@@ -379,7 +482,9 @@
 </div>
 <hr class="my-3"/>
 <div class="text-xs space-y-1">
-<p>CFS: <span x-text="cfs || '—'"></span></p>
+<p x-show="cfs">CFS: <span x-text="cfs"></span></p>
+<p x-show="(!cfs) && (friedCount > 0)">FRIED: <span x-text="friedCount + '/5 — ' + frailtyClass"></span></p>
+<p x-show="(!cfs) && !(friedCount > 0)">Frailty: <span>—</span></p>
 <p>Dementia: <span x-text="format(hasDementia)"></span></p>
 <p class="text-xs mt-2 text-gray-600">
   <span x-show="hasDementia === false">
@@ -685,7 +790,7 @@ if (this.hasDementia === true && this.borderlineBetween) {
   };
 }
 // 1) Fragilidade bloqueia
-          if (this.blockByFrailty) return { label: 'Screening not recommended', tone: 'danger', reason: 'Very Severely Frail: CSF 8–9.' };
+          if (this.blockByFrailty) return { label: 'Screening not recommended', tone: 'danger', reason: 'Very Severely Frail: CFS 8–9.' };
           // 2) Risco alto bloqueia
           if (this.mortalityHigh === true) return { label: 'Screening not recommended', tone: 'danger', reason: '4-year mortality risk ≥50%.' };
           // 3) Risco <50% passa por Shared decision-making
@@ -891,6 +996,128 @@ document.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 
+<!-- ===================== -->
+<!-- COUNTERS (Visits / Completions) + APP MODE DETECTION BEGIN -->
+<script id="app-and-counters">
+(function(){
+  try {
+    var isStandalone = (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) || (typeof navigator !== 'undefined' && navigator.standalone === true);
+    if (isStandalone) document.documentElement.classList.add('app-standalone');
+    if (isStandalone && document.body && document.body.classList) document.body.classList.add('app-standalone');
+  } catch(e) {}
+
+  try {
+    var DISMISS_KEY = "install_prompt_dismissed_lung_v1";
+    function isStandaloneNow() {
+      return (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) || (typeof navigator !== 'undefined' && navigator.standalone === true);
+    }
+    function isMobileish() {
+      return (window.innerWidth <= 820) || ("ontouchstart" in window) || (navigator.maxTouchPoints > 0);
+    }
+    if (!isStandaloneNow() && isMobileish() && !localStorage.getItem(DISMISS_KEY)) {
+      var el = document.createElement('div');
+      el.className = 'install-prompt';
+      el.innerHTML =
+        '<div class="row">' +
+          '<div class="txt">Tip: install this as an app for a cleaner, less cluttered experience.</div>' +
+          '<button class="btn primary" type="button" id="ip-how">How</button>' +
+          '<button class="btn" type="button" id="ip-x">✕</button>' +
+        '</div>' +
+        '<div class="hint" id="ip-hint"></div>';
+      document.body.appendChild(el);
+
+      var hint = el.querySelector('#ip-hint');
+      var ua = navigator.userAgent || '';
+      el.querySelector('#ip-how').addEventListener('click', function(){
+        var isIOS = /iPhone|iPad|iPod/i.test(ua);
+        var isSafari = isIOS && /Safari/i.test(ua) && !/CriOS|FxiOS/i.test(ua);
+        hint.innerHTML = isSafari
+          ? 'On iPhone: tap <b>Share</b> → <b>Add to Home Screen</b>, then open from the icon.'
+          : 'On Android: menu (⋮) → <b>Add to Home screen</b> / <b>Install app</b>, then open from the icon.';
+        hint.style.display = 'block';
+      });
+      el.querySelector('#ip-x').addEventListener('click', function(){
+        localStorage.setItem(DISMISS_KEY, '1');
+        el.remove();
+      });
+      setTimeout(function(){ el.style.display = 'block'; }, 800);
+    }
+  } catch(e) {}
+
+  var WORKER_BASE = "https://75cs-counters.matheus-barros-md.workers.dev";
+  var CALC_ID = "lung"; // share the same worker across calculators
+
+  function ensureCounterEl() {
+    var existing = document.getElementById('corner-counters');
+    if (existing) return existing;
+    var c = document.createElement('div');
+    c.id = 'corner-counters';
+    c.className = 'no-print';
+    c.style.cssText = 'position:fixed;right:10px;bottom:10px;z-index:9997;' +
+      'font:11px system-ui,-apple-system,Segoe UI,Roboto,Arial;' +
+      'color:rgba(0,0,0,.55);background:rgba(255,255,255,.72);' +
+      'border:1px solid rgba(0,0,0,.08);border-radius:10px;' +
+      'padding:6px 8px;backdrop-filter: blur(6px);';
+    c.innerHTML = '<span style="margin-right:8px;">Visits: <b id="visits-count">—</b></span>' +
+                  '<span>Completions: <b id="completions-count">—</b></span>';
+    document.body.appendChild(c);
+    return c;
+  }
+
+  async function api(path) {
+    var base = WORKER_BASE.replace(/\/$/, '');
+    var url = base + path + (path.indexOf('?')>=0 ? '&' : '?') + 'calc=' + encodeURIComponent(CALC_ID);
+    var res = await fetch(url, { method:'GET', mode:'cors', cache:'no-store' });
+    if (!res.ok) throw new Error('counter request failed');
+    return await res.json();
+  }
+
+  function setText(id, val) {
+    var el = document.getElementById(id);
+    if (el) el.textContent = (val==null ? '—' : String(val));
+  }
+
+  try {
+    ensureCounterEl();
+    var visitKey = 'visit_recorded_' + CALC_ID + '_v1';
+    if (!sessionStorage.getItem(visitKey)) {
+      sessionStorage.setItem(visitKey, '1');
+      api('/visit').then(function(data){ setText('visits-count', data && (data.visits ?? data.count ?? data.value)); })
+                   .catch(function(){});
+    }
+  } catch(e) {}
+
+  try {
+    var completionKey = 'completion_recorded_' + CALC_ID + '_v1';
+    var tick = setInterval(function(){
+      try {
+        var stepEl = document.querySelector('[x-text="step"]');
+        var currentStep = null;
+        if (stepEl) {
+          var t = (stepEl.textContent || '').trim();
+          var n = parseInt(t, 10);
+          if (!isNaN(n)) currentStep = n;
+        }
+        if (currentStep === 5 && !sessionStorage.getItem(completionKey)) {
+          sessionStorage.setItem(completionKey, '1');
+          api('/complete').then(function(data){ setText('completions-count', data && (data.completions ?? data.count ?? data.value)); })
+                          .catch(function(){});
+        }
+      } catch(_) {}
+    }, 700);
+    setTimeout(function(){ clearInterval(tick); }, 120000);
+  } catch(e) {}
+
+  try {
+    api('/get').then(function(data){
+      ensureCounterEl();
+      if (data && data.visits != null) setText('visits-count', data.visits);
+      if (data && data.completions != null) setText('completions-count', data.completions);
+    }).catch(function(){});
+  } catch(e) {}
+})();
+</script>
+<!-- COUNTERS + APP MODE DETECTION END -->
+<!-- ===================== -->
 </body>
 </html>
-
