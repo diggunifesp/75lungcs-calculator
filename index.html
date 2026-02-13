@@ -204,9 +204,7 @@ body.app-standalone #fluxograma-hero { margin-top: 12px !important; }
 </div>
 </header>
 <section class="mt-4" id="fluxograma-hero">
-  <div class="relative bg-white rounded-xl shadow-2xl ring-1 ring-black/5 p-2 overflow-hidden">
-
-    <!-- Click-to-expand hint -->
+  <div class="relative bg-white rounded-xl shadow-2xl ring-1 ring-black/5 p-2">
     <div
       class="absolute top-2 right-2
              bg-white
@@ -217,13 +215,14 @@ body.app-standalone #fluxograma-hero { margin-top: 12px !important; }
      id="fluxograma-zoom-hint">
       Click image to expand
     </div>
-
-    <img
+    <div class="rounded-xl overflow-hidden">
+      <img
       id="fluxograma-img"
       src="assets/img/flowchart-en.png"
       alt="Fluxograma de rastreio"
-      class="w-full h-auto block cursor-zoom-in rounded-xl"
+      class="w-full h-auto block cursor-zoom-in"
     />
+    </div>
   </div>
 </section>
 <div class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center hidden z-50" id="fluxograma-modal"><img alt="Fluxograma ampliado" class="max-h-screen max-w-screen cursor-zoom-out" id="fluxograma-modal-img" src="assets/img/flowchart-en.png"/></div>
