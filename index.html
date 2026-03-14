@@ -110,21 +110,15 @@ details.app-collapsible {
     line-height: 1.35;
     margin-top: 8px;
   }
-  /* App UI polish: center authors content and normalize spacing between boxes */
-  details.app-collapsible { margin-top: 10px !important; }
+/* App UI polish: center authors content and normalize spacing between boxes */
+details.app-collapsible { margin-top: 10px !important; }
 details.app-collapsible .app-muted { text-align: center; }
 #fluxograma-hero { margin-top: 8px !important; }
-#fluxograma-hero details.app-collapsible {
-  border: none !important;
+
+#fluxograma-hero > div {
   background: transparent !important;
+  box-shadow: none !important;
   padding: 0 !important;
-}
-#fluxograma-hero details.app-collapsible > summary {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 36px;
-}
 }
 
 /* iOS Add-to-Home-Screen (Safari) does not always support display-mode media query reliably.
