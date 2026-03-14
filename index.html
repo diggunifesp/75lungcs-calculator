@@ -114,7 +114,11 @@ details.app-collapsible {
   details.app-collapsible { margin-top: 10px !important; }
 details.app-collapsible .app-muted { text-align: center; }
 #fluxograma-hero { margin-top: 8px !important; }
-
+#fluxograma-hero details.app-collapsible {
+  border: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+}
 }
 
 /* iOS Add-to-Home-Screen (Safari) does not always support display-mode media query reliably.
@@ -263,7 +267,7 @@ body.app-standalone #fluxograma-hero { margin-top: 8px !important; }
 <template x-if="step === 1">
 <div class="bg-white shadow rounded-lg p-4">
 <h2 class="text-lg font-semibold mb-2">Step 1 — Frailty</h2>
-<p class="text-sm text-gray-500 mb-4">Complete either the Fried Criteria or the Clinical Frailty Scale (CFS). Only one is required to proceed.</p>
+<p class="text-sm text-gray-500 mb-4">Fill the Fried Criteria or Clinical Frailty Scale (CFS). Only one method is needed to proceed.</p>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <div>
 <label class="text-sm font-medium mb-2 block">FRIED — Fried Criteria* (Recommended for geriatricians)</label>
@@ -1232,16 +1236,27 @@ document.addEventListener('DOMContentLoaded', function(){
 
 <!-- App-only: adjust the flowchart zoom hint for touch devices -->
 <script>
-  (function () {
-    const isStandalone =
-      (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) ||
-      window.navigator.standalone === true;
+(function () {
 
-    if (!isStandalone) return;
+  const isStandalone =
+    (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) ||
+    window.navigator.standalone === true;
 
-    const hint = document.getElementById('fluxograma-zoom-hint');
-    if (hint) hint.textContent = 'Pinch to zoom';
-  })();
+  if (!isStandalone) return;
+
+  const hint = document.getElementById('fluxograma-zoom-hint');
+  const flow = document.querySelector('#fluxograma-hero details');
+
+  if (!hint || !flow) return;
+
+  hint.textContent = 'Pinch to zoom';
+  hint.style.display = flow.open ? 'block' : 'none';
+
+  flow.addEventListener('toggle', function () {
+    hint.style.display = flow.open ? 'block' : 'none';
+  });
+
+})();
 </script>
 
 </body>
